@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --front: #FF000000;
+  --back: #FFE10000;
+  --top: #6CFF0000;
+  --bottom: #00C8FF00;
+  --left: #3000FF00;
+  --right: #FF00FB00;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bg 10s linear infinite alternate;
+  background-color: #FF9600;
+}
+
+@keyframes bg {
+  0%,10% {
+    background-color: #FF9600;
+  }
+
+  50% {
+    background-color: #FFFFFF;
+  }
+
+  100% {
+    background-color: #00FF96;
+  }
+}
+
+.main {
+  height: 400px;
+  width: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  perspective-origin: top right;
+}
+
+.cube {
+  height: 300px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  animation: cube 10s linear infinite;
+}
+
+@keyframes cube {
+  from {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.Face {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px;
+  overflow: hidden;
+}
+
+.Front {
+  background-color: var(--front);
+  transform: translateZ(100px);
+  animation: front 2s linear 6s both;
+}
+
+.Back {
+  background-color: var(--back);
+  transform: translateZ(-100px);
+  animation: back 2s linear 6s both;
+}
+
+.Top {
+  background-color: var(--top);
+  transform: rotateX(90deg) translateZ(100px);
+  animation: top 2s linear 6s both;
+}
+
+.Bottom {
+  background-color: var(--bottom);
+  transform: rotateX(90deg) translateZ(-100px);
+  animation: bottom 2s linear 6s both;
+}
+
+.Left {
+  background-color: var(--left);
+  transform: rotateY(90deg) translateZ(-100px);
+  animation: left 2s linear 6s both;
+}
+
+.Right {
+  background-color: var(--right);
+  transform: rotateY(90deg) translateZ(100px);
+  animation: right 2s linear 6s both;
+}
+
+@keyframes front {
+  from {
+    transform: translateZ(100px);
+  }
+
+  to {
+    transform: translateZ(50px);
+  }
+}
+
+@keyframes back {
+  from {
+    transform: translateZ(-100px);
+  }
+
+  to {
+    transform: translateZ(-50px);
+  }
+}
+
+@keyframes top {
+  from {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+
+  to {
+    transform: rotateX(90deg) translateZ(50px);
+  }
+}
+
+@keyframes bottom {
+  from {
+    transform: rotateX(90deg) translateZ(-100px);
+  }
+
+  to {
+    transform: rotateX(90deg) translateZ(-50px);
+  }
+}
+
+@keyframes left {
+  from {
+    transform: rotateY(90deg) translateZ(-100px);
+  }
+
+  to {
+    transform: rotateY(90deg) translateZ(-50px);
+  }
+}
+
+@keyframes right {
+  from {
+    transform: rotateY(90deg) translateZ(100px);
+  }
+
+  to {
+    transform: rotateY(90deg) translateZ(50px);
+  }
+}
